@@ -31,7 +31,7 @@ class Footer extends React.Component {
             <Container>
                 <Button href="https://darksky.net/poweredby/">Powered by DarkSky</Button>
                 <span>
-                    <Button href="https://www.google.com">
+                    <Button href="https://github.com/dweggyness/WeatherApp">
                         <GoMarkGithub/> Github
                     </Button>
                 </span>
