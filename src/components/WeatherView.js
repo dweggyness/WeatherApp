@@ -54,7 +54,7 @@ const InnerContainer = styled.div`
 
 const Text = styled.span`
     font-size: 0.5em;
-    margin: 0 5% % 5%;
+    margin: 0% 5% 1.5% 5%;
 `
 
 const Icon = styled.span`

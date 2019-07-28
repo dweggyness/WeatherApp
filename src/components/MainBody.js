@@ -21,12 +21,12 @@ class MainBody extends React.Component {
     renderCells(){ // skip first index as it is already rendered
         if(this.props.daily[0].icon === ""){ // check if there is response from API yet
             return (
-                <div>Waiting</div>
+                <div>Loading</div>
             )
         } 
 
         let cells = [];
-        for(let i=1; i<8; i++){
+        for(let i=1; i<8; i++){ // next 7days
             cells.push(
                 <DailyWeatherCell key={i}
                     day= {this.props.days[i]}

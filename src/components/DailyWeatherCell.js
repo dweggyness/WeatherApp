@@ -5,7 +5,7 @@ import '../styles/weather-icons.min.css'
 const fadeIn = keyframes`
     0% { 
         opacity: 0;
-        transform: translateY(200px);
+        transform: translateY(250px);
     }
     100% {
         opacity: 1;
@@ -35,6 +35,8 @@ const Day = styled.span`
 const Icon = styled.i`
     font-size: 1.5em;
     width: 41%;
+    align-items: center;
+    justify-contents: center;
 `
 
 class DailyWeatherCell extends React.Component {

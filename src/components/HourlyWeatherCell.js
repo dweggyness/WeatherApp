@@ -16,18 +16,16 @@ const Card = styled.div`
     background: ${props => {
         const icon = props.icon;
         switch(icon){
-            case "clear-day":
+            case "Clear":
                 return 'rgba(148, 189, 255, 0.8)';
-            case "rain":
+            case "Rain":
                 return 'rgba(115, 115, 115, 0.8)';
-            case "snow":
+            case "Snow":
                 return 'rgba(115, 115, 115, 0.8)';
-            case "partly-cloudy-day":
-                return 'rgba(160, 160, 160, 0.8)';
-            case "partly-cloudy-night":
+            case "Cloudy":
                 return 'rgba(160, 160, 160, 0.8)';
             default:
-                return 'rgba(230,230,230, 0.8)';
+                return 'rgba(230, 230, 230, 0.8)';
         }
     }};
 `
@@ -37,28 +35,11 @@ class HourlyWeatherCell extends React.Component {
         return (Math.round(count * 24))
     }
 
-    _getContent(icon){
-        switch(icon){
-            case "clear-day":
-                return 'Clear';
-            case "rain":
-                return 'Rain';
-            case "snow":
-                return 'Snow';
-            case "partly-cloudy-day":
-                return 'Cloudy';
-            case "partly-cloudy-night":
-                return 'Cloudy';
-            default:
-                return 'Mostly Cloudy';
-        }
-    };
-
     render(){
         const width = this._getWidth(this.props.count);
         let content = "";
         if(this.props.count >= 3){
-            content = this._getContent(this.props.icon)
+            content = this.props.icon;
         }
         return (
             <Card 

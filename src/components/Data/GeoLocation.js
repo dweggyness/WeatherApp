@@ -15,6 +15,8 @@ class Geolocation extends React.Component {
           <WeatherData
             latitude={this.props.coords.latitude}
             longitude={this.props.coords.longitude}
+            // latitude='40.7128'
+            // longitude='74.0060'
           />
           : <div>Getting the location data&hellip; </div>;
   }

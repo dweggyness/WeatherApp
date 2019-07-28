@@ -25,18 +25,29 @@ const HorFlex = styled.div`
 `
 
 class DayTimeline extends React.Component {
-    renderCells(){
-        if(this.props.hourly[0].icon === ""){ // check if there is response from API yet
-            return (
-                <div></div>
-            )
-        }; 
+    _getContent(icon){
+        switch(icon){
+            case "clear-day":
+                return 'Clear';
+            case "rain":
+                return 'Rain';
+            case "snow":
+                return 'Snow';
+            case "partly-cloudy-day":
+                return 'Cloudy';
+            case "partly-cloudy-night":
+                return 'Cloudy';
+            default:
+                return 'Overcast';
+        }
+    };
 
+    renderCells(){
         let cells = []; // function to form an array of cells where consecutive ones are merged
         let temp = [];
         let count = 0;
-        for(let i=0; i<=24; i++){
-            let icon = this.props.hourly[i].icon // nab current icon
+        for(let i=0; i<=(this.props.hourly.length / 2); i++){
+            let icon = this._getContent(this.props.hourly[i].icon)
             temp.push(icon); // add in the current forecast into temp
             count++;
 
@@ -51,7 +62,7 @@ class DayTimeline extends React.Component {
                         count= {count - 1}
                     />
                 );
-                count = 0;
+                count = 1;
             }
 
             if(i === 24 && count > 0){ // last item but still haven't pushed in
@@ -67,14 +78,8 @@ class DayTimeline extends React.Component {
     }
 
     renderTemp(curHour){
-        if(this.props.hourly[0].temperature === 0){ // check if there is response from API yet
-            return (
-                <div></div>
-            )
-        }; 
-
         let temps = [];
-        for(let i=0; i<24; i++){
+        for(let i=0; i<((this.props.hourly.length / 2)); i++){
             let temp = Math.round(this.props.hourly[i].temperature) + '°C'
             let time = ""
             if(curHour > 24){
